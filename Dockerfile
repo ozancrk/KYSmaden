@@ -27,5 +27,3 @@ COPY . ./
 RUN docker-php-ext-install -j$(nproc) iconv intl xml soap opcache pdo pdo_mysql mysqli \
     && docker-php-ext-configure gd --with-freetype=/usr/include/ --with-jpeg=/usr/include/ \
     && docker-php-ext-install -j$(nproc) gd
-CMD a2enmod rewrite
-CMD systemctl restart apache2
