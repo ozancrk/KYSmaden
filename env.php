@@ -6,7 +6,7 @@ $scriptConfig = array(
 	'headerTitle' => 'OzBilişim | Kongre Yönetim Sistemi',
 	'requestDIR' => 'api',
 	'requestURL' => ['api','post','get'],
-	'mainURL' => 'http://kys.ozbilisim.net',
+	'mainURL' => getenv_docker('MAIN_URL', 'http://kys.ozbilisim.net'),
 	'status' => 'develop', //develop or production
 	'adminDIR' => 'panel',
 	'adminURL' => ['admin','hakem','yazar','editor','panel'],
@@ -17,12 +17,14 @@ $scriptConfig = array(
 
 
 function server_root_dir(){
-	global $scriptConfig;
-	if(!empty($scriptConfig['root_folder'])){
-		return $_SERVER['DOCUMENT_ROOT'] .'/'. $scriptConfig['root_folder'];
-	}else{
-		return $_SERVER['DOCUMENT_ROOT'];
-	}
+    return getenv_docker('ROOTFOLDER', '/var/www/html');
+
+//	global $scriptConfig;
+//	if(!empty($scriptConfig['root_folder'])){
+//		return $_SERVER['DOCUMENT_ROOT'] .'/'. $scriptConfig['root_folder'];
+//	}else{
+//		return $_SERVER['DOCUMENT_ROOT'];
+//	}
 }
 
 function currentAdminDIR(){
