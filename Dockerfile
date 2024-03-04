@@ -1,5 +1,5 @@
 # Use an official PHP runtime as a parent image
-FROM php:7.4-apache
+FROM 8.1-fpm
 
 # Set the working directory in the container
 WORKDIR /var/www/html
@@ -16,4 +16,4 @@ RUN apt-get update && \
 EXPOSE 80
 
 # Start Apache when the container runs
-CMD ["apache2-foreground"]
+CMD ["systemctl restart php8.1-fpm.service"]
