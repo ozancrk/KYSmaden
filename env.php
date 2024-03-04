@@ -1,12 +1,12 @@
 <?php
-
+$protocol=$_SERVER['PROTOCOL'] = isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) ? 'https' : 'http';
 $scriptConfig = array(
 	'rootDIR' => '',
 	'baseTitle' => 'OzBilişim | Kongre Yönetim Sistemi',
 	'headerTitle' => 'OzBilişim | Kongre Yönetim Sistemi',
 	'requestDIR' => 'api',
 	'requestURL' => ['api','post','get'],
-	'mainURL' => 'https://kystest.maden.ozbilisim.net',
+    'mainURL' => $protocol.'://'.$_SERVER['HTTP_HOST'],
 	'status' => 'develop', //develop or production
 	'adminDIR' => 'panel',
 	'adminURL' => ['admin','hakem','yazar','editor','panel'],
@@ -17,14 +17,12 @@ $scriptConfig = array(
 
 
 function server_root_dir(){
-    return '/var/www/html';
-
-//	global $scriptConfig;
-//	if(!empty($scriptConfig['root_folder'])){
-//		return $_SERVER['DOCUMENT_ROOT'] .'/'. $scriptConfig['root_folder'];
-//	}else{
-//		return $_SERVER['DOCUMENT_ROOT'];
-//	}
+	global $scriptConfig;
+	if(!empty($scriptConfig['root_folder'])){
+		return $_SERVER['DOCUMENT_ROOT'] .'/'. $scriptConfig['root_folder'];
+	}else{
+		return $_SERVER['DOCUMENT_ROOT'];
+	}
 }
 
 function currentAdminDIR(){

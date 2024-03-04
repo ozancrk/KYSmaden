@@ -15,7 +15,7 @@
     <div id="tg-homeslider" class="tg-homeslider tg-haslayout owl-carousel">
         <?php
 
-        for ($i = 1; $i < 1; $i++) {
+        for ($i = 1; $i < 2; $i++) {
 
             ?>
             <figure class="item tg-bannerimg" data-vide-bg="poster: view/site/assets/images/slider/slider-<?= $i ?>.jpg"

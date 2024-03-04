@@ -3,7 +3,7 @@
 $menu = array(
 	'admin'  => array(
 		array(
-			'name'     => array( 'tr' => 'ADMİN MENÜSÜ', 'en' => 'Paper Manage' ),
+			'name'     => array( 'tr' => 'ADMİN MENÜSÜ', 'en' => 'ADMİN MENU' ),
 			'dropdown' => false,
 			'type'     => 'title',
 		),
