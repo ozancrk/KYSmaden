@@ -7,6 +7,11 @@ VOLUME /var/www/html/storage
 
 WORKDIR /var/www/html
 
+ENV BASETITLE="OzBilişim | Kongre Yönetim Sistemi"
+ENV HEADERTITLE="OzBilişim | Kongre Yönetim Sistemi"
+ENV STATUS=production
+ENV KYSID=KYSID
+
 # Custom cache invalidation / optional
 #ARG CACHEBUST=1
 # Run composer install / Optional

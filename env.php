@@ -1,16 +1,31 @@
 <?php
-$protocol=$_SERVER['PROTOCOL'] = isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) ? 'https' : 'http';
+
+
+function env($meta, $default = '')
+{
+
+
+    if (isset($_ENV[$meta])) {
+        return $_ENV[$meta];
+    } else {
+        return $default;
+    }
+
+}
+
+
+$protocol = $_SERVER['PROTOCOL'] = isset($_SERVER['HTTPS']) && !empty($_SERVER['HTTPS']) ? 'https' : 'http';
 $scriptConfig = array(
-	'rootDIR' => '',
-	'baseTitle' => 'OzBilişim | Kongre Yönetim Sistemi',
-	'headerTitle' => 'OzBilişim | Kongre Yönetim Sistemi',
-	'requestDIR' => 'api',
-	'requestURL' => ['api','post','get'],
-    'mainURL' => $protocol.'://'.$_SERVER['HTTP_HOST'],
-	'status' => 'develop', //develop or production
+    'rootDIR' => '',
+    'baseTitle' => env('BASETITLE','OzBilişim | Kongre Yönetim Sistemi'),
+    'headerTitle' => env('HEADERTITLE','OzBilişim | Kongre Yönetim Sistemi'),
+    'requestDIR' => 'api',
+    'requestURL' => ['api', 'post', 'get'],
+    'mainURL' => $protocol . '://' . $_SERVER['HTTP_HOST'],
+    'status' => env('STATUS','production'), //develop or production
 	'adminDIR' => 'panel',
 	'adminURL' => ['admin','hakem','yazar','editor','panel'],
-    'KYSID' => 'IMCET'
+    'KYSID' => env('KYSID','KYSID'),
 );
 
 // VERİTABANI BİLGİLERİ config/db.php içinde
