@@ -1,15 +1,4 @@
-# Use an official PHP runtime as a parent image
-FROM jkaninda/laravel-php-fpm:8.3
-# Copy laravel project files
+FROM php:8.1.27-apache
 COPY . /var/www/html
-# Storage Volume
-VOLUME /var/www/html/storage
-
-WORKDIR /var/www/html
-
-# Custom cache invalidation / optional
-#ARG CACHEBUST=1
-# Run composer install / Optional
-#RUN composer install
-# Fix permissions
-RUN chown -R www-data:www-data /var/www/html
+RUN docker-php-ext-install pdo_mysql
+CMD ["apache2ctl", "-D", "FOREGROUND"]
