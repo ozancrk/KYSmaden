@@ -78,6 +78,12 @@ $menu = array(
 					'dropdown' => false,
 					'URL'      => 'yurutme/yurutme-main'
 				),
+                array(
+                    'name'     => array( 'tr' => 'Konu Başlıkları', 'en' => 'Subject Headings' ),
+                    'icon'     => '<i class="la la-bars"></i>',
+                    'dropdown' => false,
+                    'URL'      => 'konu/konu-main'
+                ),
 			)
 		),
 		array(
@@ -117,53 +123,35 @@ $menu = array(
 			'dropdown' => false,
 			'type'     => 'title',
 		),
-		array(
-			'name'     => array( 'tr' => 'Mesajlar', 'en' => 'Messages' ),
-			'icon'     => '<i class="la la-send"></i>',
-			'dropdown' => false,
-			'URL'      => 'mesaj/mesaj-main'
-		),
-		array(
-			'name'     => array( 'tr' => 'Konu Başlıkları', 'en' => 'Subject Headings' ),
-			'icon'     => '<i class="la la-bars"></i>',
-			'dropdown' => false,
-			'URL'      => 'konu/konu-main'
-		),
-		array(
-			'name'     => array( 'tr' => 'Ayarlar', 'en' => 'Options' ),
-			'icon'     => '<i class="la la-cogs"></i>',
-			'dropdown' => true,
-			'SUB'      => array(
-				array(
-					'name'     => array( 'tr' => 'Genel Ayarlar', 'en' => 'General Options' ),
-					'dropdown' => false,
-					'URL'      => 'options/general-options'
-				),
-                array(
-                    'name'     => array( 'tr' => 'Anasayfa', 'en' => 'Home' ),
-                    'dropdown' => false,
-                    'URL'      => 'sayfa/anasayfa'
-                ),
-				array(
-					'name'     => array( 'tr' => 'Sayfalar', 'en' => 'Pages' ),
-					'dropdown' => false,
-					'URL'      => 'sayfa/main'
-				),
-				array(
-					'name'     => array(
-						'tr' => 'Sponsor ve Sergi İçerikleri',
-						'en' => 'Sponsor and Exhibition Contents'
-					),
-					'dropdown' => false,
-					'URL'      => 'sponsor-icerik/main'
-				),
-				array(
-					'name'     => array( 'tr' => 'Mesaj Metinleri', 'en' => 'Message Text' ),
-					'dropdown' => false,
-					'URL'      => 'mesajlar/mesajlar-main'
-				),
-			)
-		)
+        array(
+            'name'     => array( 'tr' => 'Mesajlar', 'en' => 'Messages' ),
+            'icon'     => '<i class="la la-send"></i>',
+            'dropdown' => false,
+            'URL'      => 'mesaj/mesaj-main'
+        ),
+        array(
+            'name'     => array( 'tr' => 'Genel Ayarlar', 'en' => 'General Options' ),
+            'dropdown' => false,
+            'URL'      => 'options/general-options'
+        ),
+        array(
+            'name'     => array( 'tr' => 'Sayfalar', 'en' => 'Pages' ),
+            'dropdown' => false,
+            'URL'      => 'sayfa/main'
+        ),
+        array(
+            'name'     => array(
+                'tr' => 'Sponsor ve Sergi İçerikleri',
+                'en' => 'Sponsor and Exhibition Contents'
+            ),
+            'dropdown' => false,
+            'URL'      => 'sponsor-icerik/main'
+        ),
+        array(
+            'name'     => array( 'tr' => 'Mesaj Metinleri', 'en' => 'Message Text' ),
+            'dropdown' => false,
+            'URL'      => 'mesajlar/mesajlar-main'
+        )
 	),
 	'editor' => array(
 		array(

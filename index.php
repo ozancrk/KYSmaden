@@ -16,8 +16,8 @@ require_once 'functions.php';
 	develop ise hata gösterimi açılıyor
 */
 if ( $scriptConfig['status'] == 'develop' ) {
-	ini_set( 'display_errors', 'on' );
-	error_reporting( E_WARNING   );
+        ini_set( 'display_errors', 'on' );
+        error_reporting( E_WARNING   );
 }
 
 /*
@@ -30,6 +30,8 @@ if ( ! empty( $scriptConfig['rootDIR'] ) ) {
 } else {
 	$URL = ltrim( $_SERVER['REQUEST_URI'], "/" );
 }
+
+$URL = explode('?', $URL)[0];
 
 $URL = rtrim( $URL, "/" );
 

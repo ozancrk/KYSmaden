@@ -128,3 +128,42 @@ function sidebarCreate( $userType ) {
 
 
 }
+
+
+function menuList(){
+    global $db;
+
+    $menu = $db->from('pages')->where('menu',0,'!=')->all();
+
+    $return = [];
+    $i = 0;
+    foreach ($menu as $item){
+        $return[$i] = $item;
+        $return[$i]['child'] = menuChild($item['id']);
+        $i++;
+    }
+
+    return $return;
+
+}
+
+
+function menuChild($id){
+    global $db;
+
+    $menu = $db->from('pages')->where('parent',$id)->all();
+    $return = [];
+    if(count($menu) < 1){
+        return $return;
+    }
+
+    $i = 0;
+    foreach ($menu as $item){
+
+        $return[$i] = $item;
+        $return[$i]['child'] = menuChild($item['id']);
+        $i++;
+    }
+    return $return;
+
+}

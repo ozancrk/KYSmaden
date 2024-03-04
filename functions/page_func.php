@@ -4,7 +4,7 @@
 function listPages(){
     global $db;
 
-    return $db->from('pages')->all();
+    return $db->from('pages')->where('type','file', '!=')->all();
 
 }
 
@@ -26,7 +26,11 @@ function getPageMetaByGuid($guid){
 
     global $db;
 
-    $pageMeta = $db->from('pages')->where('guid',$guid)->first();
+    $pageMeta = $db->from('pages')->where('guid_tr',$guid)->or_where('guid_en',$guid)->first();
+
+    if(!$pageMeta){
+        return false;
+    }
 
     foreach ($db->from('pageMeta')->where('page',$pageMeta['id'])->all() as $item){
         $pageMeta[$item['meta']] = $item['value'];

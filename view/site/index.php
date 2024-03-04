@@ -1,21 +1,31 @@
 <?php
 
+$URLExplode = explode('?', $URL);
 
-if(empty($URL)){
+if (empty($URLExplode[0])) {
 
-	include $SiteLang.'/home.php';
+    include $SiteLang . '/home.php';
 
 
-}else{
+} else {
 
-   $URLExplode  = explode('?',$URL);
 
     $PageMeta = getPageMetaByGuid($URLExplode[0]);
 
-    if($PageMeta['type'] == 'file'){
-        include $SiteLang.'/'.$URLExplode[0].'.php';
+    if ($PageMeta) {
+        if ($PageMeta['type'] == 'file') {
+            include $SiteLang . '/' . $URLExplode[0] . '.php';
+        } else {
+
+            include $SiteLang . '/page.php';
+
+
+        }
+
+
+    }else{
+        include $SiteLang . '/404.php';
     }
 
-    echo $SiteLang.'/'.$URLExplode[0].'.php';
 
 }

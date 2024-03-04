@@ -3,7 +3,14 @@
 
 $pageMeta = getPageMeta($_GET['pageID']);
 
+
 $userMeta = getPageMeta($_GET['pageID']);
+
+if ($_GET['pageLang']) {
+    $pageLang = $_GET['pageLang'];
+} else {
+    $pageLang = 'tr';
+}
 
 ?>
 
@@ -13,11 +20,11 @@ $userMeta = getPageMeta($_GET['pageID']);
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Bildiri Bilgileri</h4>
+                    <h4 class="mb-sm-0"><?= $pageMeta[$SiteLang] ?></h4>
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Bildiriler</a></li>
-                            <li class="breadcrumb-item active">Bildiri Bilgileri</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Sayfalar</a></li>
+                            <li class="breadcrumb-item active"><?= $pageMeta[$SiteLang] ?></li>
                         </ol>
                     </div>
                 </div>
@@ -36,52 +43,92 @@ $userMeta = getPageMeta($_GET['pageID']);
         <?php }else{ ?>
     </div>
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-12">
             <div class="card">
+                <div class="card-header">
+                    <a class="btn btn-primary" href="/panel/sayfa/details?pageID=<?=$_GET['pageID']?>&pageLang=<?=($pageLang == 'tr'?'en':'tr')?>">
+                        <?=($pageLang == 'tr'?'İngilizce İçerik Düzenle':'Türkçe İçerik Düzenle')?>
+                    </a>
+                    <a target="_blank" class="btn btn-success" href="<?=$scriptConfig['mainURL'] . '/' . $pageMeta['guid_' . $pageLang]?>">
+                        Sayfayı Aç
+                    </a>
                 <div class="card-body">
-                    <ul class="nav nav-tabs nav-justified mb-3" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" data-bs-toggle="tab" href="#tr" role="tab">
-                                Türkçe
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-bs-toggle="tab" href="#en" role="tab">
-                                İngilizce
-                            </a>
-                        </li>
-                    </ul>
 
-                    <!-- Tab panes -->
-                    <div class="tab-content text-muted">
-                        <div class="tab-pane active" id="tr" role="tabpanel">
-                            <div class="row">
-                                <div class="col-md-6 col-12">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5 class="card-title mb-3">Yazar Bilgileri</h5>
+                    <?php
 
-                                        </div><!-- end card body -->
-                                    </div><!-- end card -->
-                                </div>
+                    echo createForm(
+                        array(
+                            'id' => 'serialize',
+                            'buttonText' => 'Gönder',
+                            'elements' =>
+                                array(
+                                    array(
+                                        'type' => 'text',
+                                        'label' => 'Başlık',
+                                        'name' => $pageLang,
+                                        'value' => $pageMeta[$pageLang]
+                                    ),
+                                    array(
+                                        'type' => 'text',
+                                        'label' => 'URL',
+                                        'name' => 'url',
+                                        'value' => $scriptConfig['mainURL'] . '/' . $pageMeta['guid_' . $pageLang],
+                                        'disabled' => true
+                                    ),
+                                    array(
+                                        'type' => 'checkbox',
+                                        'label' => 'Sayfa linkini başlığa göre düzenle',
+                                        'name' => 'urlChance',
+                                        'value' => 0
+                                    ),
+                                    array(
+                                        'type' => 'ckeditor',
+                                        'collabel' => '6',
+                                        'colinput' => '6',
+                                        'id' => 'trPage',
+                                        'value' => $pageMeta['content_' . $pageLang]
+                                    ),
+                                    array(
+                                        'type' => 'hidden',
+                                        'name' => 'paperID',
+                                        'value' => $_GET['paperID']
+                                    ),
+                                    array(
+                                        'type' => 'hidden',
+                                        'name' => 'islem',
+                                        'value' => 'mesajGonder'
+                                    ),
+                                    array(
+                                        'type' => 'hidden',
+                                        'name' => 'ckeditor',
+                                        'value' => $pageLang . 'Page'
+                                    ),
+                                    array(
+                                        'type' => 'hidden',
+                                        'name' => 'id',
+                                        'value' => $_GET['pageID']
+                                    ),
+                                    array(
+                                        'type' => 'hidden',
+                                        'name' => 'lang',
+                                        'value' => $pageLang
+                                    ),
+                                    array(
+                                        'type' => 'hidden',
+                                        'name' => 'postUrl',
+                                        'value' => 'pages/page-edit'
+                                    )
+                                )
+                        )
+                    );
 
 
-                            </div>
-                        </div>
-                        <div class="tab-pane" id="en" role="tabpanel">
+                    ?>
 
-
-                        </div>
-
-
-                    </div>
                 </div>
-            </div><!-- end card-body -->
-        </div><!-- end card -->
+            </div>
+        </div>
     </div>
-    <!--end col-->
-</div>
-
-<?php } ?>
+    <?php } ?>
 </div>
 </div>

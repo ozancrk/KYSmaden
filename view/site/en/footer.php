@@ -1,43 +1,43 @@
 <footer id="tg-footer" class="tg-footer tg-haslayout">
-    <div class="tg-foorterbar">
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                    <ul class="tg-address tg-addressfooter">
-                        <li><span><i class="fa fa-solid fa-location-pin"></i></span>
-                            <span><address>TMMOB Maden Mühendisleri Odası Zonguldak Şubesi
+	<div class="tg-foorterbar">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+					<ul class="tg-address tg-addressfooter">
+						<li><span><i class="fa fa-solid fa-location-pin"></i></span>
+							<span><address>TMMOB Maden Mühendisleri Odası Zonguldak Şubesi
 Liman Cad. No: 25
 67100 - Zonguldak
 
                             </address></span>
-                        </li>
-                        <li><span><i class="fa fa-solid fa-phone"></i></span><span><em>+90 546 4251085</em></span></li>
-                        <li><span><i class="fa fa-brands fa-whatsapp"></i></span><span><em>+90 546 4251079</em></span>
-                        </li>
-                        <li><span><i class="fa fa-solid fa-paper-plane"></i></span><span>komur.kongresi@gmail.com</span></li>
-                        <li><span></span><span>2022 Tüm Hakları Saklıdır</span></li>
-                    </ul>
-                    <ul class="tg-socialicons">
-                        <li><a href="#" target="_blank"><i
-                                        class="fa fa-brands fa-linkedin-in"></i></a></li>
-                        <li><a href="#" target="_blank"><i
-                                        class="fa fa-brands fa-instagram"></i></a></li>
-                        <li><a href="#" target="_blank"><i
-                                        class="fa fa-brands fa-twitter"></i></a></li>
-                        <li><a href="#" target="_blank"><i
-                                        class="fa fa-brands fa-facebook-f"></i></a></li>
-                        <li><a href="#" target="_blank"><i
-                                        class="fa fa-brands fa-youtube"></i></a></li>
-                    </ul>
+						</li>
+						<li><span><i class="fa fa-solid fa-phone"></i></span><span><em>+90 546 4251085</em></span></li>
+						<li><span><i class="fa fa-brands fa-whatsapp"></i></span><span><em>+90 546 4251079</em></span>
+						</li>
+						<li><span><i class="fa fa-solid fa-paper-plane"></i></span><span>komur.kongresi@gmail.com</span></li>
+						<li><span></span><span>2022 Tüm Hakları Saklıdır</span></li>
+					</ul>
+					<ul class="tg-socialicons">
+						<li><a href="#" target="_blank"><i
+									class="fa fa-brands fa-linkedin-in"></i></a></li>
+						<li><a href="#" target="_blank"><i
+									class="fa fa-brands fa-instagram"></i></a></li>
+						<li><a href="#" target="_blank"><i
+									class="fa fa-brands fa-twitter"></i></a></li>
+						<li><a href="#" target="_blank"><i
+									class="fa fa-brands fa-facebook-f"></i></a></li>
+						<li><a href="#" target="_blank"><i
+									class="fa fa-brands fa-youtube"></i></a></li>
+					</ul>
 
-                </div>
-            </div>
-        </div>
-    </div>
+				</div>
+			</div>
+		</div>
+	</div>
 </footer>
 
 <a href="https://api.whatsapp.com/send?phone=+905464251079&text=&nbsp;" class="float" target="_blank">
-    <i class="fa fa-brands fa-whatsapp my-float"></i>
+	<i class="fa fa-brands fa-whatsapp my-float"></i>
 </a>
 <!--************************************
 		Footer End

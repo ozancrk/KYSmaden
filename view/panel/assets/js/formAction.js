@@ -58,9 +58,9 @@ $(document).ready(function () {
 
         if (data.upload && sessionStorage.getItem(data.token) === null) {
 
-            if(data.bildiriEk){
+            if (data.bildiriEk) {
                 var filedata = await uploadbildirifiles(data.upload, data.bildiri, data.fileType)
-            }else {
+            } else {
                 var filedata = await uploadfiles(data.upload)
             }
 
@@ -76,6 +76,17 @@ $(document).ready(function () {
 
             data.mesaj = mesajElem[0].innerHTML;
         }
+
+        if (data.ckeditor) {
+            // const ckeditorData = $('#' + data.ckeditor + ' > .ck-editor  > .ck-editor__main > .ck-content');
+            // data.pageContent = ckeditorData[0].innerHTML;
+
+            const editorData = editor.getData();
+            data.pageContent = editorData;
+
+        }
+
+
 
         await $.ajax({
             type: 'POST', url: url, dataType: 'json', data: data, success: function (msg) {
@@ -345,10 +356,9 @@ async function uploadfiles(fileInputID) {
 
 }
 
-async function uploadbildirifiles(fileInputID,bildiriID,fileType) {
+async function uploadbildirifiles(fileInputID, bildiriID, fileType) {
 
     let fileList = $('#' + fileInputID).prop("files");
-
 
 
     let form_data = "";

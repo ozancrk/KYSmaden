@@ -1,7 +1,7 @@
 <?php
 
 session_start();
-
+header('Content-Type: application/json; charset=utf-8');
 require_once '../../env.php';
 
 require_once server_root_dir().'/config/db.php';

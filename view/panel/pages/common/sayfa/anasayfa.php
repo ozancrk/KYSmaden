@@ -3,6 +3,7 @@
 
 $pageMeta = getPageMeta(1);
 
+
 $userMeta = getPageMeta(1);
 
 ?>
@@ -13,11 +14,11 @@ $userMeta = getPageMeta(1);
         <div class="row">
             <div class="col-12">
                 <div class="page-title-box d-sm-flex align-items-center justify-content-between">
-                    <h4 class="mb-sm-0">Bildiri Bilgileri</h4>
+                    <h4 class="mb-sm-0"><?=$pageMeta[$SiteLang]?></h4>
                     <div class="page-title-right">
                         <ol class="breadcrumb m-0">
-                            <li class="breadcrumb-item"><a href="javascript: void(0);">Bildiriler</a></li>
-                            <li class="breadcrumb-item active">Bildiri Bilgileri</li>
+                            <li class="breadcrumb-item"><a href="javascript: void(0);">Sayfalar</a></li>
+                            <li class="breadcrumb-item active"><?=$pageMeta[$SiteLang]?></li>
                         </ol>
                     </div>
                 </div>
@@ -56,55 +57,125 @@ $userMeta = getPageMeta(1);
                     <div class="tab-content text-muted">
                         <div class="tab-pane active" id="tr" role="tabpanel">
                             <div class="row">
-                                <div class="col-md-12 col-12">
-                                    <div class="card">
-                                        <div class="card-body">
+                                <?php
 
-                                            <?php echo createForm( array(
-                                                'id'         => 'serialize',
-                                                'buttonText' => 'Gönder',
-                                                'elements'   => array(
-                                                    array(
-                                                        'type'     => 'editor',
-                                                        'collabel' => '6',
-                                                        'colinput' => '6',
-                                                        'id'       => 'sliderText'
-                                                    ),
-                                                    array(
-                                                        'type'  => 'hidden',
-                                                        'name'  => 'meta',
-                                                        'value' => 'slide_tr',
-                                                    ),
-                                                    array(
-                                                        'type'  => 'hidden',
-                                                        'name'  => 'postUrl',
-                                                        'value' => 'page/edit',
-                                                    )
+                                echo createForm(
+                                    array(
+                                        'id' => 'serialize',
+                                        'buttonText' => 'Gönder',
+                                        'elements' =>
+                                            array(
+                                                array(
+                                                    'type' => 'text',
+                                                    'label' => 'Başlık',
+                                                    'name' => 'tr',
+                                                    'value' => $pageMeta['tr']
+                                                ),
+                                                array(
+                                                    'type' => 'text',
+                                                    'label' => 'URL',
+                                                    'name' => 'url',
+                                                    'value' => $scriptConfig['mainURL'].'/'. $pageMeta['guid_tr'],
+                                                    'disabled' => true
+                                                ),
+                                                array(
+                                                    'type' => 'hidden',
+                                                    'name' => 'paperID',
+                                                    'value' => 1
+                                                ),
+                                                array(
+                                                    'type' => 'hidden',
+                                                    'name' => 'islem',
+                                                    'value' => 'mesajGonder'
+                                                ),
+                                                array(
+                                                    'type' => 'hidden',
+                                                    'name' => 'id',
+                                                    'value' => 1
+                                                ),
+                                                array(
+                                                    'type' => 'hidden',
+                                                    'name' => 'lang',
+                                                    'value' => 'tr'
+                                                ),
+                                                array(
+                                                    'type' => 'hidden',
+                                                    'name' => 'postUrl',
+                                                    'value' => 'pages/page-edit'
                                                 )
-                                            ) );
-                                            ?>
-                                            
-                                        </div><!-- end card body -->
-                                    </div><!-- end card -->
-                                </div>
+                                            )
+                                    )
+                                );
 
+
+                                ?>
 
                             </div>
                         </div>
                         <div class="tab-pane" id="en" role="tabpanel">
+                            <div class="row">
+                                <?php
+
+                                echo createForm(
+                                    array(
+                                        'id' => 'serialize',
+                                        'buttonText' => 'Gönder',
+                                        'elements' =>
+                                            array(
+                                                array(
+                                                    'type' => 'text',
+                                                    'label' => 'Başlık',
+                                                    'name' => 'en',
+                                                    'value' => $pageMeta['en']
+                                                ),
+                                                array(
+                                                    'type' => 'text',
+                                                    'label' => 'URL',
+                                                    'name' => 'url',
+                                                    'value' => $scriptConfig['mainURL'].'/'. $pageMeta['guid_en'],
+                                                    'disabled' => true
+                                                ),
+                                                array(
+                                                    'type' => 'hidden',
+                                                    'name' => 'paperID',
+                                                    'value' => 1
+                                                ),
+                                                array(
+                                                    'type' => 'hidden',
+                                                    'name' => 'islem',
+                                                    'value' => 'mesajGonder'
+                                                ),
+                                                array(
+                                                    'type' => 'hidden',
+                                                    'name' => 'id',
+                                                    'value' => 1
+                                                ),
+                                                array(
+                                                    'type' => 'hidden',
+                                                    'name' => 'lang',
+                                                    'value' => 'en'
+                                                ),
+                                                array(
+                                                    'type' => 'hidden',
+                                                    'name' => 'postUrl',
+                                                    'value' => 'pages/page-edit'
+                                                )
+                                            )
+                                    )
+                                );
 
 
+                                ?>
+                            </div>
                         </div>
 
-
                     </div>
-                </div>
-            </div><!-- end card-body -->
-        </div><!-- end card -->
+                </div><!-- end card-body -->
+            </div><!-- end card -->
+        </div>
+        <!--end col-->
     </div>
-    <!--end col-->
-</div>
 
-<?php } ?>
+    <?php } ?>
 </div>
 </div>
