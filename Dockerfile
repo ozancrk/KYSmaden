@@ -1,5 +1,5 @@
 # Use an official PHP runtime as a parent image
-FROM php:8.1-fpm
+FROM jkaninda/nginx-php-fpm:8.2
 
 # Set the working directory in the container
 WORKDIR /var/www/html
