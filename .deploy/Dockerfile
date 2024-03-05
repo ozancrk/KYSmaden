@@ -21,7 +21,7 @@ RUN setcap 'cap_net_bind_service=+ep' /usr/local/bin/caddy
 FROM php-system-setup AS app-setup
 
 # Set working directory
-ENV LARAVEL_PATH=/srv/app
+ENV LARAVEL_PATH=/var/www/html
 WORKDIR $LARAVEL_PATH
 
 # Add non-root user: 'app'
