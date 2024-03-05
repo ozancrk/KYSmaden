@@ -16,7 +16,7 @@ COPY --from=caddy:2.2.1 /usr/bin/caddy /usr/local/bin/caddy
 RUN setcap 'cap_net_bind_service=+ep' /usr/local/bin/caddy
 
 # Install composer
-COPY --from=composer/composer:2 /usr/bin/composer /usr/local/bin/composer
+#COPY --from=composer/composer:2 /usr/bin/composer /usr/local/bin/composer
 
 FROM php-system-setup AS app-setup
 
@@ -36,11 +36,11 @@ RUN chmod 777 /usr/sbin/crond
 RUN chown -R $NON_ROOT_USER:$NON_ROOT_GROUP /etc/crontabs/$NON_ROOT_USER && setcap cap_setgid=ep /usr/sbin/crond
 
 # Switch to non-root 'app' user & install app dependencies
-COPY composer.json composer.lock ./
-RUN chown -R $NON_ROOT_USER:$NON_ROOT_GROUP $LARAVEL_PATH
-USER $NON_ROOT_USER
-RUN composer install --prefer-dist --no-scripts --no-dev --no-autoloader
-RUN rm -rf /home/$NON_ROOT_USER/.composer
+#COPY composer.json composer.lock ./
+#RUN chown -R $NON_ROOT_USER:$NON_ROOT_GROUP $LARAVEL_PATH
+#USER $NON_ROOT_USER
+#RUN composer install --prefer-dist --no-scripts --no-dev --no-autoloader
+#RUN rm -rf /home/$NON_ROOT_USER/.composer
 
 # Copy app
 COPY --chown=$NON_ROOT_USER:$NON_ROOT_GROUP . $LARAVEL_PATH/
