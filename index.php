@@ -1,7 +1,5 @@
 <?php
-
-var_dump($_ENV);
-
+ob_start();
 /*
 	ENV ile temel ayar bilgileri
 	functions ile de site genelinde kullanılabilir
